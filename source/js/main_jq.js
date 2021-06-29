@@ -121,7 +121,7 @@ $(function () {
 				// a) 열려진 모달도 숨기기
 				$(this).css('visibility', 'hidden');
 				// 열기버튼에 포커스 강제 이동후, 부모 div.search.on / div.menu.on => .on제거
-				$openBtn.focus().parent().removeClass('on');;
+				$openBtn.focus().parent().removeClass('on');
 			});
 
 			// 2) dim 보이지 않게 숨기고 -> 삭제
