@@ -1,0 +1,110 @@
+@charset "utf-8";
+@import "_var", "_mixin", "_function";
+
+.fullVdo {
+  
+  @include flex;
+  
+  a {
+    padding-top: 15px;
+    display: block;
+    width: 300px;
+    height: 40px;
+
+    display: inline-block;
+    
+    letter-spacing: 0.5px;
+    
+    font-family: $beauty;
+    color: #fff;
+    
+    em{font-weight: 600;}
+  }
+  .arrow{
+
+    &::after {
+      content: "";
+      border-radius: 50%;
+      width: 33px;
+      height: 33px;
+      background: #b20000 url(../images/SVG/full.svg) no-repeat 100% / cover;
+      right: -20px;
+      top: -16px;
+      position: absolute;
+    }
+  }
+
+  a:hover .arrow, a:focus .arrow {
+    
+      width: 85px;
+  }
+}
+
+.videoCtrl {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  right: 10px;
+
+  #play-button,
+  #pause-button {
+    position: absolute;
+    width: 2.6875rem;
+    height: 2.6875rem;
+    border-radius: 50%;
+  }
+
+  #play-button {
+    background: $midnight url(../images/SVG/play.svg) no-repeat 100% / cover;
+    visibility: hidden;
+    @include transition(all 0.3s)
+  }
+
+  #pause-button {
+    background: $midnight url(../images/SVG/pause.svg) no-repeat 100% / cover;
+    @include transition(all 0.2s)
+  }
+
+  #play-button:hover,
+  #pause-button:hover,
+  #play-button:focus,
+  #pause-button:focus {
+    background-color: $silkynight;
+  }
+
+}
+
+.explr {
+  display: block;
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 50px;
+  margin: 0 auto;
+
+  z-index: 3;
+
+  width: 80px;
+  height: 72px;
+  background: url(../images/SVG/explr.svg) no-repeat 100% / cover;
+
+  @include transition (all 0.5s);
+
+  letter-spacing: 2.5px;
+  line-height: 25px;
+  font-size: 12px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff !important;
+
+
+
+  @include animation (upNdown 2s linear infinite both);
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+
+
+}
+

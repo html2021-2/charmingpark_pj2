@@ -1,0 +1,157 @@
+@charset "UTF-8";
+/* #f0c2c9 , #ffdbe1 */
+/* 
+*/
+/* TODO: 본문글씨 공통클래스 */
+/* @include translateY-50;
+    position: absolute;top: 50%; */
+    /* #1a1b1b
+#444 
+#b20000 wine
+#F0C2C9 wht wine
+#720000 wine:hover */
+/* #262A2D midnight */
+/* #FBF7EF (251,247,239) */
+/* https://codepen.io/g1eb/pen/MpXQZN dash-array */
+/* 초중고 섹션 30px 로 apis 따라하기 */
+/* 말줄임표 (line-clamp) */
+/* 
+
+@include animation(fadeUp 1.5s forwards);
+
+@-webkit-keyframes fadeUp {
+  0%{opacity: 0;-webkit-transform: translateY(50px);}
+  100%{opacity: 1;-webkit-transform: translateY(0px);}
+}
+@-moz-keyframes fadeUp {
+  0%{opacity: 0;-moz-transform: translateY(50px);}
+  100%{opacity: 1;-moz-transform: translateY(0px);}
+}
+@keyframes fadeUp {
+  0%{opacity: 0;transform: translateY(50px);}
+  100%{opacity: 1;transform: translateY(0px);}
+
+
+@include keyframes(fadeIn) {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+*/
+/* 
+태블릿크기 x 1.07(비율로 더 크게 보이도록) = ??px => vw로 환산하자
+30 X 1.07 = 32.1px
+
+770px 에서 1vw의 크기가 얼마인지??
+770(해상도) / 100 = 7.7px
+
+32.1px / 7.7px = 4.168831168831169vw
+
+vw-calc770(태블릿 사이즈size) {
+  (size * 1.07) / (770 / 100)
+} 
+
+함수 만들기
+@function calc-percent($target, $container) {
+  @return ($target / $container) * 100%;
+}
+함수 호출하기
+.box {
+  width: calc-percent(650px, 1000px);
+}
+*/
+/* 쓸때는 vw-calc770(40) 이렇게 px빼고 적는다 */
+/* 또는 calc(10% - 5.5584415584vw) 이렇게 적음 */
+.fullVdo {
+  /* 제어 안되고있음 : 수정필요 */
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex; }
+  .fullVdo a {
+    padding-top: 15px;
+    display: block;
+    width: 300px;
+    height: 40px;
+    display: inline-block;
+    letter-spacing: 0.5px;
+    font-family: "Raleway", sans-serif !important;
+    color: #fff; }
+    .fullVdo a em {
+      font-weight: 600; }
+  .fullVdo .arrow::after {
+    content: "";
+    border-radius: 50%;
+    width: 33px;
+    height: 33px;
+    background: #b20000 url(../images/SVG/full.svg) no-repeat 100%/cover;
+    right: -20px;
+    top: -16px;
+    position: absolute; }
+  .fullVdo a:hover .arrow, .fullVdo a:focus .arrow {
+    width: 85px; }
+
+.videoCtrl {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  right: 10px; }
+  .videoCtrl #play-button,
+  .videoCtrl #pause-button {
+    position: absolute;
+    width: 2.6875rem;
+    height: 2.6875rem;
+    border-radius: 50%; }
+  .videoCtrl #play-button {
+    background: #395061 url(../images/SVG/play.svg) no-repeat 100%/cover;
+    visibility: hidden;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s; }
+  .videoCtrl #pause-button {
+    background: #395061 url(../images/SVG/pause.svg) no-repeat 100%/cover;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s; }
+  .videoCtrl #play-button:hover,
+  .videoCtrl #pause-button:hover,
+  .videoCtrl #play-button:focus,
+  .videoCtrl #pause-button:focus {
+    background-color: #5a6e7e; }
+
+.explr {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 50px;
+  margin: 0 auto;
+  z-index: 3;
+  width: 80px;
+  height: 72px;
+  background: url(../images/SVG/explr.svg) no-repeat 100%/cover;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  letter-spacing: 2.5px;
+  line-height: 25px;
+  font-size: 12px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff !important;
+  -webkit-animation: upNdown 2s linear infinite both;
+  -moz-animation: upNdown 2s linear infinite both;
+  animation: upNdown 2s linear infinite both;
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */ }
+
+/*# sourceMappingURL=main.css.map */

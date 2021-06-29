@@ -1,0 +1,437 @@
+@charset "UTF-8";
+/* #f0c2c9 , #ffdbe1 */
+/* 
+*/
+/* TODO: 본문글씨 공통클래스 */
+/* @include translateY-50;
+    position: absolute;top: 50%; */
+    /* #1a1b1b
+#444 
+#b20000 wine
+#F0C2C9 wht wine
+#720000 wine:hover */
+/* #262A2D midnight */
+/* #FBF7EF (251,247,239) */
+/* https://codepen.io/g1eb/pen/MpXQZN dash-array */
+/* 초중고 섹션 30px 로 apis 따라하기 */
+/* 말줄임표 (line-clamp) */
+/* 
+
+@include animation(fadeUp 1.5s forwards);
+
+@-webkit-keyframes fadeUp {
+  0%{opacity: 0;-webkit-transform: translateY(50px);}
+  100%{opacity: 1;-webkit-transform: translateY(0px);}
+}
+@-moz-keyframes fadeUp {
+  0%{opacity: 0;-moz-transform: translateY(50px);}
+  100%{opacity: 1;-moz-transform: translateY(0px);}
+}
+@keyframes fadeUp {
+  0%{opacity: 0;transform: translateY(50px);}
+  100%{opacity: 1;transform: translateY(0px);}
+
+
+@include keyframes(fadeIn) {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+*/
+/* 
+태블릿크기 x 1.07(비율로 더 크게 보이도록) = ??px => vw로 환산하자
+30 X 1.07 = 32.1px
+
+770px 에서 1vw의 크기가 얼마인지??
+770(해상도) / 100 = 7.7px
+
+32.1px / 7.7px = 4.168831168831169vw
+
+vw-calc770(태블릿 사이즈size) {
+  (size * 1.07) / (770 / 100)
+} 
+
+함수 만들기
+@function calc-percent($target, $container) {
+  @return ($target / $container) * 100%;
+}
+함수 호출하기
+.box {
+  width: calc-percent(650px, 1000px);
+}
+*/
+/* 쓸때는 vw-calc770(40) 이렇게 px빼고 적는다 */
+/* 또는 calc(10% - 5.5584415584vw) 이렇게 적음 */
+#skip a:focus {
+  height: 50px;
+  line-height: 50px;
+  font-weight: 700;
+  border-bottom: 3px solid #b20000; }
+
+#headerWrap {
+  /* height: 100vh;
+  min-height: 700px;
+  overflow: hidden;
+  box-sizing: border-box; */ }
+
+#Header {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  padding-bottom: 50%;
+  background: #b20000 url(../images/poster.jpg) no-repeat 100%/cover;
+  box-sizing: border-box;
+  border-bottom: 4px solid #b20000; }
+  #Header #HeaderVideo {
+    position: absolute;
+    top: -19%;
+    left: -11%;
+    width: 120%;
+    max-width: 140%;
+    height: 140%;
+    box-sizing: content-box;
+    pointer-events: none;
+    border: none; }
+  #Header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, transparent 30%, transparent 60%, rgba(0, 0, 0, 0.5) 100%);
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    z-index: 2; }
+  #Header .headerTop,
+  #Header .headerBtm {
+    left: 0;
+    width: 100%;
+    max-width: none;
+    height: 100px;
+    padding: 0 60px;
+    box-sizing: border-box;
+    margin: 25px auto; }
+
+.logo a {
+  display: block;
+  height: 100px;
+  width: 400px; }
+
+.search {
+  margin-right: 160px;
+  height: 100%;
+  width: 50px; }
+  .search .btn_open {
+    width: 100%;
+    height: 100%; }
+    .search .btn_open::after {
+      left: 0;
+      right: 0;
+      margin: -10px auto;
+      width: 30px;
+      height: 30px; }
+  .search.on .search_slide_out {
+    width: 450px; }
+    .search.on .search_slide_out h2 {
+      font-size: 1.5rem;
+      line-height: 2.25rem;
+      margin-bottom: 10px; }
+    .search.on .search_slide_out .top {
+      height: 60px;
+      margin-bottom: 2.5rem;
+      letter-spacing: 1px; }
+      .search.on .search_slide_out .top label {
+        margin: 14px 20px;
+        line-height: 32px; }
+        .search.on .search_slide_out .top label.typing {
+          width: 30ch; }
+      .search.on .search_slide_out .top input {
+        padding: 14px 20px;
+        letter-spacing: 1px; }
+      .search.on .search_slide_out .top .search_button {
+        width: 62px;
+        height: 62px; }
+        .search.on .search_slide_out .top .search_button::after {
+          top: calc(50% - (28px / 2));
+          width: 25px;
+          height: 25px; }
+    .search.on .search_slide_out .nav_utility_search {
+      letter-spacing: 0.5px; }
+    .search.on .search_slide_out .btn_close {
+      left: -3.75rem;
+      width: 3.75rem;
+      height: 3.75rem; }
+
+.menu {
+  /* &.scroll_down {}
+
+  
+  // 스크롤을 내리면 i태그만 빼놓고 사라짐 (모바일에서도 이걸로 사용함.) 
+  
+  */ }
+  .menu .menu_open,
+  .menu .menu_close {
+    top: 3rem;
+    right: 4rem;
+    line-height: 60px;
+    position: fixed;
+    width: 100vw;
+    max-width: 8.375rem;
+    height: 100vh;
+    max-height: 3.75rem;
+    font-size: 14px;
+    letter-spacing: 3.82px; }
+  .menu.on .menu_slide_out {
+    width: 800px;
+    max-width: 900px; }
+    .menu.on .menu_slide_out .search {
+      margin-right: 160px; }
+
+.menuTop {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  justify-content: space-between; }
+  .menuTop .sub_menu ul li {
+    height: 20px;
+    margin-right: 20px;
+    padding: 40px 0; }
+    .menuTop .sub_menu ul li a {
+      font-size: 11px;
+      letter-spacing: 3px;
+      line-height: 20px; }
+
+.search.on .search_slide_out,
+.menu.on .menu_slide_out {
+  position: fixed;
+  top: 0;
+  right: -800px;
+  display: block;
+  padding: 25px 60px;
+  box-sizing: border-box;
+  height: 100vh;
+  background: rgba(53, 63, 76, 0.95); }
+
+.main_menu {
+  margin: 60px 0 200px;
+  width: 50%; }
+  .main_menu > ul > li {
+    width: 100%;
+    height: 80px; }
+    .main_menu > ul > li > a {
+      display: inline-block;
+      position: relative;
+      height: 80px;
+      width: 100%;
+      line-height: 80px;
+      font-size: 35px;
+      letter-spacing: 3px;
+      overflow: hidden; }
+  .main_menu > ul ul {
+    width: 100%;
+    height: 100%;
+    font-size: 9px;
+    left: 100%;
+    top: 0; }
+    .main_menu > ul ul li {
+      top: 0;
+      left: 0; }
+      .main_menu > ul ul li a {
+        padding-left: 50px;
+        height: 50px;
+        width: 100%;
+        font-size: 16px;
+        line-height: 50px;
+        letter-spacing: 1.5px; }
+
+.apply_to {
+  box-sizing: border-box;
+  height: 60px;
+  width: 280px;
+  padding: 14px 23px;
+  top: -120px;
+  position: relative;
+  line-height: 30px;
+  overflow: hidden; }
+  .apply_to svg {
+    position: absolute;
+    width: 62px;
+    height: 62px;
+    padding: 5px 10px 5px 210px;
+    top: -5px;
+    right: 0; }
+
+.sticky {
+  /* sticky 로 만들고 싶음 */
+  /* 이미지를 넣지않으면 live server에서는 사이즈에 문제있어 보임 */
+  position: fixed;
+  top: 50%;
+  right: calc(-165px - -48px);
+  transform: translateY(-50%);
+  width: 165px;
+  z-index: 2;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  /* js로 focus제어 */ }
+  .sticky:hover {
+    right: 0; }
+  .sticky li {
+    height: 48px;
+    width: 100%; }
+    .sticky li a {
+      height: 48px;
+      letter-spacing: 3.5px;
+      font-size: 13px; }
+    .sticky li img {
+      width: 48px;
+      height: 48px; }
+    .sticky li span {
+      display: block; }
+
+#PageBodyWraper {
+  bottom: 5px; }
+  #PageBodyWraper section {
+    width: 100%;
+    /* 제어 안되고있음 : 수정필요 */
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    box-sizing: border-box; }
+  #PageBodyWraper #cnt1 {
+    height: 670px;
+    margin-bottom: 175px;
+    /* 제어 안되고있음 : 수정필요 */
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex; }
+    #PageBodyWraper #cnt1 .titleBox {
+      box-sizing: border-box;
+      padding: 25px 50px;
+      width: 100%;
+      max-width: 35%; }
+      #PageBodyWraper #cnt1 .titleBox .btnBox {
+        margin-top: 50px; }
+        #PageBodyWraper #cnt1 .titleBox .btnBox button {
+          width: 53px;
+          height: 53px; }
+    #PageBodyWraper #cnt1 article.view {
+      width: 100%;
+      max-width: 65%;
+      height: 100%;
+      position: relative;
+      overflow: hidden; }
+      #PageBodyWraper #cnt1 article.view ul {
+        /* 제어 안되고있음 : 수정필요 */
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        height: 100%;
+        position: absolute; }
+      #PageBodyWraper #cnt1 article.view li {
+        box-sizing: border-box;
+        padding: 25px 45px;
+        width: 540px;
+        height: 100%; }
+        #PageBodyWraper #cnt1 article.view li:nth-child(even) {
+          background: white; }
+        #PageBodyWraper #cnt1 article.view li:nth-child(odd) {
+          background: #FBF7EF; }
+        #PageBodyWraper #cnt1 article.view li .txtBox {
+          width: 100%;
+          height: 250px; }
+          #PageBodyWraper #cnt1 article.view li .txtBox h3 {
+            font-size: 24px;
+            color: #b20000;
+            font-weight: 400;
+            margin-bottom: 1rem; }
+        #PageBodyWraper #cnt1 article.view li p {
+          width: 100%;
+          height: 120px;
+          /* 
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow : ellipsis; */ }
+        #PageBodyWraper #cnt1 article.view li img {
+          width: 100%;
+          height: 270px;
+          background: no-repeat 100% / cover; }
+        #PageBodyWraper #cnt1 article.view li .moreBtn {
+          /* TODO: 여기까지 했음 */
+          display: block;
+          height: 40px;
+          margin-top: 40px; }
+      #PageBodyWraper #cnt1 article.view li:nth-of-type(1) {
+        /* juicer를 이용해 주소로 이미지 불러오기  */ }
+        #PageBodyWraper #cnt1 article.view li:nth-of-type(1) .photo {
+          background-image: url(https://img.juicer.io/ig/image/CQXqXzQCMwJ?s=6b66372c17f05be30d3211c0fe8e55c4ec7d1640); }
+      #PageBodyWraper #cnt1 article.view li:nth-of-type(2) .photo {
+        background: url(); }
+  #PageBodyWraper #cnt2 {
+    border: 1px solid #000;
+    height: 660px;
+    margin-bottom: 175px; }
+  #PageBodyWraper #cnt3 {
+    height: 600px;
+    margin-bottom: 250px; }
+  #PageBodyWraper #cnt4 {
+    height: 850px;
+    margin-bottom: 240px; }
+  #PageBodyWraper #cnt5 {
+    height: 615px;
+    margin-bottom: 170px; }
+  #PageBodyWraper #cnt6 {
+    height: 850px;
+    margin-bottom: 190px; }
+  #PageBodyWraper #cnt7 {
+    /* 원본디자인 픽셀 그대로 가져오기 : 풋터까지 다 만들고 마지막에 제어 */
+    height: 1050px;
+    margin-bottom: 280px; }
+  #PageBodyWraper #cnt8 {
+    height: 780px;
+    margin-bottom: 250px;
+    background: rgba(208, 16, 16, 0.172); }
+
+#Footer .info {
+  height: 580px;
+  background: rgba(208, 16, 16, 0.172); }
+#Footer .copyR {
+  height: 85px;
+  background: rgba(16, 208, 70, 0.172); }
+
+#dim,
+.md_cnt {
+  position: fixed;
+  z-index: 1000; }
+
+#dim {
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); }
+
+.md_cnt {
+  visibility: hidden; }
+
+@media (min-width: 600px) {
+  .headerTop {
+    padding-left: 20px; } }
+
+/*# sourceMappingURL=layout.css.map */

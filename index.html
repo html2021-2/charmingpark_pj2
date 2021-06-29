@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Seoul Foreign School</title>
+  <link
+    href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic"
+    rel="stylesheet">
+
+  <script src="https://kit.fontawesome.com/d3b63480bc.js" crossorigin="anonymous"></script>
+  <link rel="icon" href="https://www.seoulforeign.org/uploaded/favicon.ico">
+  <!-- 내가 만든 SFS 
+  <link rel="shortcut icon" href="icon/favicon_1.ico">
+  <link rel="apple-touch-icon-precomposed" href="icon/favicon-152.png">
+  <link rel="icon" href="icon/favicon.png">
+  <link rel="icon" href="icon/favicon-16.png" sizes="16x16"> 
+  <link rel="icon" href="icon/favicon-32.png" sizes="32x32"> 
+  <link rel="icon" href="icon/favicon-48.png" sizes="48x48"> 
+  <link rel="icon" href="icon/favicon-64.png" sizes="64x64"> 
+  <link rel="icon" href="icon/favicon-128.png" sizes="128x128"> -->
+
+  <link rel="stylesheet" href="source/scss-css/reset.css">
+  <link rel="stylesheet" href="source/scss-css/layout.css">
+  <link rel="stylesheet" href="source/scss-css/common.css">
+  <link rel="stylesheet" href="source/scss-css/main.css">
+
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/froogaloop.js"></script>
+  <script src="source/js/main.js"></script>
+  <!-- https://jqueryui.com/ 추가 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- <script type="text/javascript" src="modal_try/modal-trial.js"></script> -->
+  <script src="source/js/main_jq.js"></script>
+</head>
+
+<body data-dep-one="0" data-dep-two="0">
+  <div id="skip">
+    <a href="#PageBodyWraper">Skip to Main Content</a>
+  </div>
+  <header id="headerWrap" >
+    <div id="Header"class="after">
+      <iframe id="HeaderVideo"
+        src="https://player.vimeo.com/video/230697231?api=1&autoplay=1&loop=1&muted=1&background=1&title=0"
+        tabindex="-1" aria-hidden="true"></iframe>
+      <div class="headerTop">
+        <h1 class="logo">
+          <a href="source/SFS.html">
+            <span class="blind">Seoul Foreign School</span>
+          </a>
+        </h1>
+        <div class="util">
+          <div class="search">
+            <!-- on 지우기 -->
+            <!-- 찾기 버튼 : svg .css(fill)에서 색상변경-->
+            <button class="btn_open md_open" type="button" aria-haspopup="dialog" title="open search modal page"
+              data-href="#search_modal" data-width="800">
+              <!-- data-href="#열려질모달의아이디명" 한페이지에 열려질 모달이 여러개일 경우를 대비함 -->
+              <span class="blind">search modal page</span>
+            </button>
+
+            <div id="search_modal" class="search_slide_out md_cnt" role="dialog" aria-modal="true"
+              aria-labelledby="site_search">
+              <!-- role="dialog" 중에서도 aria-modal="true" 모달효과있음을 선언-->
+              <!-- aria-label="제목" 상세 내용의 시작에 제목태그가 없는 경우 aria-labelledby="제목아이디" 상세 내용의 시작에 제목태그가 있는 경우 -->
+              <form action="index.html" id="site_search" method="GET">
+                <div class="top">
+                  <label for="site_search_txt" class="typing">What are you looking for ?</label>
+                  <input id="site_search_txt" name="site_search_txt" type="text" data-link="first" spellcheck="false">
+                  <!-- <button aria-label="clear" type="reset"><img src="images/SVG/search.svg" alt="search"><span class="blind">clear</span></button> -->
+                  <button class="search_button" type="submit"></button>
+                </div>
+              </form>
+              <section class="nav_utility_search p_r">
+                <!-- id="" data-use-new="true" -->
+                <h2>Popular Searches</h2>
+                <nav>
+                  <ul>
+                    <li><a href="../about-us/development-strategy/coeducation-at-Seoul-Foreign-School">&#35; Coeducation
+                        at
+                        Seoul Foreign School</a></li>
+                    <li><a href="../admissions/explore-Seoul-Foreign-School/register-for-visit-form">&#35; Visiting
+                        Seoul
+                        Foreign
+                        School</a></li>
+                    <li><a href="../about-us/development-strategy">&#35; Development Strategy</a></li>
+                    <li><a href="../academic/university-destinations">&#35; University Destinations</a></li>
+                    <li><a href="../news/school-magazines">&#35; Extracurriculars</a></li>
+                  </ul>
+                </nav>
+              </section>
+              <button class="btn_close md_close" type="button" data-link="last">
+                <!-- 가상요소 : 닫기버튼 X.img -->
+                <span class="blind">close search slider</span>
+              </button>
+            </div><!-- 맨 아래로 빼도 됨. js에서 부모값을 따르는 속성을 모두 제어해주어야함.. -->
+          </div>
+          <div class="menu">
+            <button class="menu_open md_open" type="button" aria-haspopup="dialog" title="open menu modal page" data-href="#menu_modal"  data-width="800">MENU &nbsp;<i class="fas fa-bars"></i></button>
+            <div id="menu_modal" class="menu_slide_out md_cnt" role="dialog" aria-modal="true"
+              aria-labelledby="menu_modal">
+              <!-- TODO: -->
+              <div class="menuTop">
+                <nav class="sub_menu">
+                  <ul>
+                    <li>
+                      <a href="/My_SFS">My SFS</a>
+                    </li>
+                    <li>
+                      <a href="/Employment">Employment</a>
+                    </li>
+                    <li>
+                      <a href="/Contact">Contact</a>
+                    </li>
+                    <li>
+                      <a href="/Apply">Apply</a>
+                    </li>
+                  </ul>
+                </nav>
+                <div class="search">
+                  <button id="search2Close" class="btn_open" type="button" aria-haspopup="dialog" title="search modal page" data-href="#search_modal"></button>
+                </div>
+                <!-- 닫기 버튼에는  data-href="#menu_modal" 없어야 함 -->
+                <button class="menu_close md_close" type="button" aria-haspopup="dialog" title="menu modal page">CLOSE &nbsp;<i class="fas fa-minus"></i></button>
+              </div>
+              <nav class="main_menu">
+                <ul title="main menu">
+                  <li>
+                    <a href="/about">About</a>
+                    <ul class="dep2">
+                      <li><a href="/about/welcome">Welcome</a></li>
+                      <li><a href="/about/mission-and-values">Mission and Values</a></li>
+                      <li><a href="/about/leadership-and-governance">Leadership and Governance</a></li>
+                      <li><a href="/about/accreditation">Accreditation and Affiliations</a></li>
+                      <li><a href="/about/directory">Faculty and Staff Directory</a></li>
+                      <li><a href="/about/safeguarding">Safeguarding</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="/admissions">Admissions</a>
+                    <ul class="dep2">
+                      <li><a href="/admissions/apply">Apply</a></li>
+                      <li><a href="/admissions/tuition-and-fees">Tuition and fees</a></li>
+                      <li><a href="/admissions/eligibility">Eligibility</a></li>
+                      <li><a href="/admissions/application-process">Application Process</a></li>
+                      <li><a href="/admissions/contact-admissions">Visit</a></li>
+                      <li><a href="/admissions/contact-us">Contact us</a></li>
+                      <li><a href="/admissions/faqs">FAQs</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="/academics">Academics</a>
+                    <ul class="dep2">
+                      <li><a href="/academics/curriculum">Curriculum Frameworks</a></li>
+                      <li><a href="/academics/british-school">British School</a></li>
+                      <li><a href="/academics/elementary-school">Elementary School</a></li>
+                      <li><a href="/academics/middle-school">Middle School</a></li>
+                      <li><a href="/academics/high-school">High School</a></li>
+                      <li><a href="/academics/arts">Arts</a></li>
+                      <li><a href="/academics/technology">Technology</a></li>
+                      <li><a href="/academics/libraries">Libraries</a></li>
+                      <li><a href="/academics/student-support">Student Support Services</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="/extracurriculars">Extracurriculars</a>
+                    <ul>
+                      <li><a href="/extracurriculars/athletics">Athletics</a></li>
+                      <li><a href="/extracurriculars/schoolwide-extracurricular-program-swep">SWEP <em>Schoolwide
+                            Extracurricular Program</em></a></li>
+                      <li><a href="https://www.campsfs.org/" target="_blank" title="opens in new window">Camp</a></li>
+                      <li><a href="/extracurriculars/christian-ministries">Christian Ministries &amp; Service</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="/community">Community</a>
+                    <ul class="dep2">
+                      <li><a href="/community/calendar">Calendar</a></li>
+                      <li><a href="/community/news">News</a></li>
+                      <li><a href="/community/covid-19">COVID-19</a></li>
+                      <li><a href="/community/parent-association">Parent Association</a></li>
+                      <li><a href="/community/spirit-shop">Spirit Shop</a></li>
+                      <li><a href="/community/theatreoffice">Theatre Office</a></li>
+                      <li><a href="/community/health-services">Health Services</a></li>
+                      <li><a href="/community/transportation">Transportation</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="/giving">Giving</a>
+                    <ul class="dep2">
+                      <li><a href="/giving/make-a-gift">Make a gift</a></li>
+                      <li><a href="/giving/the-annual-fund">The Annual Fund</a></li>
+                      <li><a href="/giving/trf">Temporarily Restricted Funds</a></li>
+                      <li><a href="/giving/annual-report-2019-2020">Annual Report 2019-2020</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
+              <a class="apply_to" href="">Apply to Addmission
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60.32 64">
+                  <defs>
+                    <style>
+                      .cls-1 {
+                        fill: #fff;
+                      }
+
+                      .cls-2 {
+                        fill: none;
+                      }
+                    </style>
+                  </defs>
+                  <g id="레이어_2" data-name="레이어 2">
+                    <g id="레이어_1-2" data-name="레이어 1">
+                      <path class="cls-1"
+                        d="M31.14,45.52a1,1,0,0,0,0-2H19.62a3,3,0,0,1-3-3V21.47a3,3,0,0,1,3-2.95H38.71a3,3,0,0,1,2.95,2.95v8.68a1,1,0,1,0,2,0V21.47a5,5,0,0,0-4.95-4.95H19.62a5,5,0,0,0-5,4.95V40.56a5,5,0,0,0,5,5Z" />
+                      <path class="cls-1"
+                        d="M37.31,29.89a.9.9,0,0,0-.9-.9H21.91a.9.9,0,1,0,0,1.8h14.5A.9.9,0,0,0,37.31,29.89Z" />
+                      <path class="cls-1" d="M21.91,34.36a.9.9,0,1,0,0,1.8h6a.9.9,0,1,0,0-1.8Z" />
+                      <path class="cls-1" d="M36.41,23.61H21.91a.91.91,0,0,0,0,1.81h14.5a.91.91,0,0,0,0-1.81Z" />
+                      <path class="cls-1"
+                        d="M44.25,33.45,37,41.66l-4.25-4.25a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L37,44.57l8.71-9.79a1,1,0,0,0-1.5-1.33Z" />
+                      <rect class="cls-2" width="60.32" height="64" />
+                    </g>
+                  </g>
+                </svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="sticky">
+        <ul>
+          <li><a href=""><img src="" alt=""><span>ACCOUNT</span></a></li>
+          <li><a href=""><img src="" alt=""><span>CONTACT</span></a></li>
+          <li><a href=""><img src="" alt=""><span>VISIT</span></a></li>
+          <li><a href=""><img src="" alt=""><span>APPLY</span></a></li>
+          <li><a href=""><img src="" alt=""><span>TOP</span></a></li>
+        </ul>
+      </nav>
+      <div class="headerBtm">
+        <div class="fullVdo moreBtn">
+          <a href="https://www.youtube.com/watch?v=dz7m5iEij7U" target="_blank" title="opens in new window">View our
+            <em>full video</em>
+            <span class="arrow"></span></a>
+        </div>
+        <div class="videoCtrl">
+          <!-- 음소거 된 장식용 영상이므로 -->
+          <button type="button" id="play-button" aria-hidden="true">
+          </button>
+          <button type="button" id="pause-button" aria-hidden="true">
+          </button>
+        </div>
+      </div>
+      <a class="explr" href="#PageBodyWraper">
+        Explore
+      </a><!-- 클릭하면 scrollTop값 올려주기 -->
+    </div>
+  </header>
+  <div id="PageBodyWraper">
+    <section id="cnt1">
+      <div class="titleBox">
+        <div class="title">
+          <span class="mini">New Announcements of this month</span>
+          <h2>Announcements</h2>
+          <p>Check out Seoul Foreign School's New Announcements</p>
+        </div>
+        <div class="btnBox">
+          <button type="button" id="prev">
+            <span class=" blind">prev page</span>
+            &lt;</button>
+          <button type="button" id="next">
+            <span class=" blind">next page</span>
+            &gt;</button>
+        </div>
+      </div>
+      <article class="view" aria-live="polite">
+        <ul>
+          <li>
+            <div class="txtBox">
+              <h3>Visited the British School</h3>
+              <p>In this IPC unit, students learned about the history of toys, materials needed to make toys, how to
+                create toys, and how to design rules of play for the toys. They interviewed the other class over Zoom to
+                ask about what kind of toys they would like and at the end of the unit, the two classes came together to
+                play!</p>
+
+            </div>
+            <img src="https://img.juicer.io/ig/image/CQXqXzQCMwJ?s=6b66372c17f05be30d3211c0fe8e55c4ec7d1640"
+              alt="A 4th grade girl is standing in front of camera to video conference">
+            <div class="moreBtn">
+              <a href="https://www.instagram.com/p/CQXqX8JiWzA/" target="_blank" title="opens in new window">Find out
+                more</a>
+              <span class="arrow"></span>
+            </div>
+          </li>
+          <li>
+            <div class="txtBox">
+              <h3></h3>
+              <p></p>
+            </div>
+            <img src="" alt="">
+            <div class="moreBtn">
+              <a href="" target="_blank" title="opens in new window">Find out
+                more</a>
+              <span class="arrow"></span>
+            </div>
+          </li>
+        </ul>
+      </article>
+    </section>
+    <section id="cnt2">
+      <div class="titleBox">
+        <div class="title">
+          <span class="mini"></span>
+          <h2></h2>
+          <p></p>
+        </div>
+      </div>
+
+
+    </section>
+    <section id="cnt3">
+      <div class="titleBox">
+        <div class="title">
+          <span class="mini"></span>
+          <h2></h2>
+          <p></p>
+        </div>
+      </div>
+
+
+    </section>
+    <section id="cnt4">
+      <div class="titleBox">
+        <div class="title">
+          <span class="mini"></span>
+          <h2></h2>
+          <p></p>
+        </div>
+      </div>
+
+
+    </section>
+    <section id="cnt5">
+      <div class="titleBox">
+        <div class="title">
+          <span class="mini"></span>
+          <h2></h2>
+          <p></p>
+        </div>
+      </div>
+
+
+    </section>
+    <section id="cnt6">
+      <div class="titleBox">
+        <div class="title">
+          <span class="mini"></span>
+          <h2></h2>
+          <p></p>
+        </div>
+      </div>
+
+
+    </section>
+    <section id="cnt7">
+      <div class="titleBox">
+        <div class="title">
+          <span class="mini"></span>
+          <h2></h2>
+          <p></p>
+        </div>
+      </div>
+
+
+    </section>
+    <section id="cnt8">
+      <div class="titleBox">
+        <div class="title">
+          <span class="mini"></span>
+          <h2></h2>
+          <p></p>
+        </div>
+      </div>
+
+
+    </section>
+  </div>
+  <footer id="Footer">
+    <div class="info"></div>
+    <div class="copyR"></div>
+  </footer>
+  <div id="dim"></div><!-- js에서 만들고 완성되면 지우기 -->
+</body>
+
+</html>

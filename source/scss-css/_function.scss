@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* 
+태블릿크기 x 1.07(비율로 더 크게 보이도록) = ??px => vw로 환산하자
+30 X 1.07 = 32.1px
+
+770px 에서 1vw의 크기가 얼마인지??
+770(해상도) / 100 = 7.7px
+
+32.1px / 7.7px = 4.168831168831169vw
+
+vw-calc770(태블릿 사이즈size) {
+  (size * 1.07) / (770 / 100)
+} 
+
+함수 만들기
+@function calc-percent($target, $container) {
+  @return ($target / $container) * 100%;
+}
+함수 호출하기
+.box {
+  width: calc-percent(650px, 1000px);
+}
+*/
+@function vw-calc770($px) {
+  $vwSize: ($px * 1.07) / (770 / 100);
+  @return #{$vwSize}vw;
+}
+/* 쓸때는 vw-calc770(40) 이렇게 px빼고 적는다 */
+/* 또는 calc(10% - #{vw-calc770(40)}) 이렇게 적음 */

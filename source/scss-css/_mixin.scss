@@ -1,0 +1,146 @@
+@mixin flex { /* 제어 안되고있음 : 수정필요 */
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+// 매개변수에 기본값 설정하기 $변수명: 기본값
+@mixin justify-content($value: center) {
+  -webkit-justify-content: $value;
+  justify-content: $value;
+}
+@mixin flex-wrap($value: wrap) {
+  -webkit-flex-wrap: $value;
+  flex-wrap: $value;
+}
+@mixin flex-flow($value) {
+  -webkit-flex-flow: $value;
+  -moz-flex-flow: $value;
+  flex-flow: $value;
+}
+@mixin flex-direction($value: column) {
+  -webkit-flex-direction: $value;
+  -moz-flex-direction: $value;
+  -ms-flex-direction: $value;
+  flex-direction: $value;
+}
+@mixin align-items($value: center) {
+  -webkit-align-items: $value;
+  align-items: $value;  
+}
+@mixin transform($value...) {
+  -webkit-transform: $value;
+  -moz-transform: $value;
+  /* -o-transform: $value;
+  -ms-transform: $value; */
+  transform: $value;
+}
+
+@mixin transition($value...) { // 여러 속성이 있으면 말줄임표로 
+  -webkit-transition: $value;
+  -moz-transition: $value;
+  -o-transition: $value;
+  transition: $value;
+}
+@mixin transition-delay($value) {
+  -webkit-transition-delay: $value;
+  -moz-transition-delay: $value;
+  -o-transition-delay: $value;
+  transition-delay: $value;
+}
+// 문자보간 #{변수} => 스크립트 ${변수} 
+@mixin keyframes($aniName) {
+  @-webkit-keyframes #{$aniName} {@content;}
+  @-moz-keyframes #{$aniName} {@content;}
+  @keyframes #{$aniName} {@content;}
+}
+
+/* 
+
+@include animation(fadeUp 1.5s forwards);
+
+@-webkit-keyframes fadeUp {
+  0%{opacity: 0;-webkit-transform: translateY(50px);}
+  100%{opacity: 1;-webkit-transform: translateY(0px);}
+}
+@-moz-keyframes fadeUp {
+  0%{opacity: 0;-moz-transform: translateY(50px);}
+  100%{opacity: 1;-moz-transform: translateY(0px);}
+}
+@keyframes fadeUp {
+  0%{opacity: 0;transform: translateY(50px);}
+  100%{opacity: 1;transform: translateY(0px);}
+
+
+@include keyframes(fadeIn) {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+*/
+
+@mixin animation($value...) {
+  -webkit-animation: $value;
+  -moz-animation: $value;
+  animation: $value;
+}
+@mixin animation-delay($value) {
+  -webkit-animation-delay: $value;
+  -moz-animation-delay: $value;
+  animation-delay: $value;
+}
+
+@mixin translateX-50 {
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+@mixin translateY-50 {
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+@mixin translate-50 {
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+@mixin line-clamp($lineNum, $maxHeight) {  // 말줄임표
+  display: -webkit-box; 
+  -webkit-line-clamp: $lineNum;
+  -webkit-box-orient: vertical; 
+  white-space: normal;
+  text-overflow:ellipsis; 
+  max-height: $maxHeight;
+  overflow: hidden;
+} 
+
+
+@mixin animation($value...) {
+  -webkit-animation: $value;
+  -moz-animation: $value;
+  animation: $value;
+}
+
+
+@mixin placeholder{
+  ::-webkit-input-placeholder{@content;}
+  :-moz-placeholder{@content;}
+  ::-moz-placeholder{@content;}
+  :-ms-input-placeholder{@content;}
+  ::-ms-input-placeholder{@content;}
+  ::placeholder{@content;}
+
+}

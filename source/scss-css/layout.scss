@@ -1,0 +1,566 @@
+@charset "utf-8";
+@import "_var", "_mixin", "_function";
+
+
+#skip a {
+  &:focus {
+    height: 50px; // 모바일에선 작아져야지!!
+    line-height: 50px;
+    font-weight: 700;
+    border-bottom: 3px solid $wine;
+  }
+}
+
+#headerWrap {
+  /* height: 100vh;
+  min-height: 700px;
+  overflow: hidden;
+  box-sizing: border-box; */
+}
+
+#Header {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  padding-bottom: 50%;
+  background: #b20000 url(../images/poster.jpg) no-repeat 100% / cover;
+  box-sizing: border-box;
+  border-bottom: 4px solid $wine;
+
+  // 크기 선언이 왜 이렇죠??
+  #HeaderVideo {
+    position: absolute;
+    top: -19%;
+    left: -11%;
+    width: 120%;
+    max-width: 140%;
+    height: 140%;
+
+    box-sizing: content-box;
+    pointer-events: none;
+    border: none;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, transparent 30%, transparent 60%, rgba(0, 0, 0, 0.5) 100%);
+    @include transition (all 0.5s);
+    z-index: 2;
+  }
+
+  .headerTop,
+  .headerBtm {
+    left: 0;
+    width: 100%;
+    max-width: none;
+    height: 100px;
+    padding: 0 60px;
+    box-sizing: border-box;
+    margin: 25px auto;
+  }
+}
+
+.logo a {
+
+  display: block;
+  height: 100px;
+  width: 400px;
+}
+
+.search {
+  margin-right: 160px;
+  // 결정 
+  height: 100%;
+  width: 50px;
+
+  .btn_open {
+    width: 100%;
+    height: 100%;
+
+    &::after {
+      left: 0;
+      right: 0;
+      margin: -10px auto;
+      width: 30px;
+      height: 30px;
+    }
+
+    // 모바일에서 효과 없음 
+    // &:hover::after, 
+    // &:focus::after {}
+  }
+
+  &.on {
+
+    // on이 되면 스크롤 금지
+    //max
+    .search_slide_out {
+      width: 450px;
+
+
+      h2 {
+        font-size: 1.5rem;
+        line-height: 2.25rem;
+        margin-bottom: 10px;
+      }
+
+      .top {
+        height: 60px;
+        margin-bottom: 2.5rem;
+        letter-spacing: 1px;
+
+        label {
+
+          margin: 14px 20px;
+          line-height: 32px;
+
+          &.typing {
+            width: 30ch;
+
+          }
+        }
+
+        input {
+          padding: 14px 20px;
+          letter-spacing: 1px;
+        }
+
+
+        .search_button {
+          width: 62px;
+          height: 62px;
+
+
+          &::after {
+            top: calc(50% - (28px / 2));
+            width: 25px;
+            height: 25px;
+          }
+        }
+
+      }
+
+
+      .nav_utility_search {
+        letter-spacing: 0.5px;
+      }
+
+
+      .btn_close {
+        left: -3.75rem;
+        width: 3.75rem;
+        height: 3.75rem;
+
+      }
+
+
+    }
+  }
+}
+
+.menu {
+
+  .menu_open,
+  .menu_close {
+    top: 3rem;
+    right: 4rem;
+    line-height: 60px;
+    position: fixed;
+    width: 100vw;
+    max-width: 8.375rem;
+    height: 100vh;
+    max-height: 3.75rem;
+    font-size: 14px;
+    letter-spacing: 3.82px; // 임의
+  }
+
+  /* &.scroll_down {}
+
+  
+  // 스크롤을 내리면 i태그만 빼놓고 사라짐 (모바일에서도 이걸로 사용함.) 
+  
+  */
+
+  &.on {
+    .menu_slide_out {
+      width: 800px;
+      max-width: 900px;
+
+      .search {
+        margin-right: 160px;
+      }
+    }
+  }
+}
+
+.menuTop {
+  display: flex; // flex 방향을 모바일에서 위아래로 바꾸면 해결 됨
+  width: 100%;
+  height: 100px;
+  justify-content: space-between;
+
+  .sub_menu {
+    ul {
+      li {
+        height: 20px;
+        margin-right: 20px;
+        padding: 40px 0;
+
+        a {
+          font-size: 11px;
+          letter-spacing: 3px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}
+
+.search.on .search_slide_out,
+.menu.on .menu_slide_out {
+  position: fixed;
+  top: 0;
+  right: -800px; // -800에서 0으로 animate()
+  display: block;
+  padding: 25px 60px;
+  box-sizing: border-box;
+  height: 100vh;
+
+
+  background: rgba(53, 63, 76, 0.95); // 모바일이 되면 a값 제거
+}
+
+.main_menu {
+  margin: 60px 0 200px;
+  width: 50%;
+
+  >ul {
+    >li {
+      width: 100%;
+      height: 80px;
+
+      >a {
+        display: inline-block; // block도 사용가능
+        position: relative;
+        height: 80px;
+        width: 100%;
+        line-height: 80px;
+        font-size: 35px;
+        letter-spacing: 3px;
+        overflow: hidden;
+      }
+
+
+      // 모바일에서 효과 없음 
+      // >a::after, 
+      // a:hover::after {}
+
+    }
+
+    ul {
+      width: 100%;
+      height: 100%;
+      font-size: 9px;
+      left: 100%;
+
+      top: 0;
+
+      li {
+        top: 0;
+        left: 0;
+        
+
+        a {padding-left: 50px;
+          height: 50px;
+          width: 100%;
+          font-size: 16px;
+          line-height: 50px;
+          letter-spacing: 1.5px;
+        }
+
+        // 모바일에서 효과 없음 
+        // a:hover {}
+
+      }
+    }
+  }
+}
+
+.apply_to {
+  box-sizing: border-box;
+  height: 60px;
+  width: 280px;
+  padding: 14px 23px;
+  top: -120px;
+  position: relative;
+  line-height: 30px;
+  overflow: hidden;
+
+  svg {
+    position: absolute;
+    width: 62px;
+    height: 62px;
+    padding: 5px 10px 5px 210px;
+    top: -5px;
+    right: 0;
+  }
+
+}
+
+.sticky {
+  /* sticky 로 만들고 싶음 */
+  /* 이미지를 넣지않으면 live server에서는 사이즈에 문제있어 보임 */
+  position: fixed;
+  top: 50%;
+  right: calc(-165px - -48px);
+  transform: translateY(-50%);
+  width: 165px;
+  z-index: 2;
+  @include transition (all 0.5s);
+
+  &:hover{ right: 0; 
+  }/* js로 focus제어 */
+
+  li {
+    height: 48px;
+    width: 100%;
+
+    a {
+      height: 48px;
+      letter-spacing: 3.5px;
+      font-size: 13px;
+    }
+
+    img {
+      width: 48px;
+      height: 48px;
+    }
+
+    span {
+      display: block;
+
+    }
+  }
+}
+
+#PageBodyWraper {
+  bottom: 5px;
+
+  section {
+    width: 100%;
+    @include flex;
+    box-sizing: border-box;
+  }
+
+  #cnt1 {
+    height: 670px;
+    margin-bottom: 175px;
+    @include flex;
+
+    //background: rgb(255, 255, 255);
+
+    .titleBox {
+      box-sizing: border-box;
+      padding: 25px 50px;
+      width: 100%;
+      max-width: 35%;
+
+      .btnBox {
+        margin-top: 50px;
+
+        button {
+          width: 53px;
+          height: 53px;
+
+        }
+      }
+    }
+
+    article.view {
+      width: 100%;
+      max-width: 65%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+
+
+      ul {
+        @include flex;
+        height: 100%;
+        position: absolute;
+      }
+
+      li {
+        box-sizing: border-box;
+        padding: 25px 45px;
+        width: 540px;
+        height: 100%;
+
+        &:nth-child(even) {
+          background: rgb(255, 255, 255);
+        }
+
+        &:nth-child(odd) {
+          background: #FBF7EF;
+        }
+
+        .txtBox {
+          width: 100%;
+          height: 250px;
+
+
+          h3 {
+            font-size: 24px;
+
+            color: #b20000;
+            font-weight: 400;
+            margin-bottom: 1rem;
+          }
+        }
+
+        p {
+          width: 100%;
+          height: 120px;
+          /* 
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow : ellipsis; */
+        }
+
+        img {
+
+          width: 100%;
+          height: 270px;
+          background: no-repeat 100% / cover;
+        }
+
+        .moreBtn {
+          /* TODO: 여기까지 했음 */
+          display: block;
+          height: 40px;
+          margin-top: 40px;
+
+
+        }
+
+
+
+      }
+
+      li:nth-of-type(1) {
+
+        .photo {
+          background-image: url(https://img.juicer.io/ig/image/CQXqXzQCMwJ?s=6b66372c17f05be30d3211c0fe8e55c4ec7d1640)
+        }
+
+        /* juicer를 이용해 주소로 이미지 불러오기  */
+      }
+
+      li:nth-of-type(2) {
+        .photo {
+          background: url();
+        }
+      }
+
+      li:nth-of-type(3) {}
+
+      li:nth-of-type(4) {}
+
+      li:nth-of-type(5) {}
+    }
+  }
+
+  #cnt2 {
+    border: 1px solid #000;
+    height: 660px;
+    margin-bottom: 175px;
+  }
+
+  #cnt3 {
+    height: 600px;
+    margin-bottom: 250px;
+  }
+
+  #cnt4 {
+    height: 850px;
+    margin-bottom: 240px;
+  }
+
+  #cnt5 {
+    height: 615px;
+    margin-bottom: 170px;
+  }
+
+  #cnt6 {
+    height: 850px;
+    margin-bottom: 190px;
+
+  }
+
+  #cnt7 {
+    /* 원본디자인 픽셀 그대로 가져오기 : 풋터까지 다 만들고 마지막에 제어 */
+    height: 1050px;
+    margin-bottom: 280px;
+  }
+
+  #cnt8 {
+    height: 780px;
+    margin-bottom: 250px;
+    background: rgba(208, 16, 16, 0.172);
+  }
+}
+
+#Footer {
+  .info {
+    height: 580px;
+    background: rgba(208, 16, 16, 0.172);
+  }
+
+  .copyR {
+    height: 85px;
+    background: rgba(16, 208, 70, 0.172);
+  }
+}
+
+
+
+#dim,
+.md_cnt {
+  position: fixed;
+  z-index: 1000;
+}
+
+#dim {
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+}
+
+.md_cnt{
+  visibility: hidden;
+}
+
+
+
+
+
+
+
+
+
+@media (min-width: 1320px) {}
+
+@media (min-width: 600px) {
+  .headerTop {
+    padding-left: 20px;
+  }
+}
