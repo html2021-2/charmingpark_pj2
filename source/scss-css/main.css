@@ -1,7 +1,6 @@
 @charset "UTF-8";
 /* #f0c2c9 , #ffdbe1 */
-/* 
-*/
+/* 모달창 색상 */
 /* TODO: 본문글씨 공통클래스 */
 /* @include translateY-50;
     position: absolute;top: 50%; */
@@ -66,36 +65,6 @@ vw-calc770(태블릿 사이즈size) {
 */
 /* 쓸때는 vw-calc770(40) 이렇게 px빼고 적는다 */
 /* 또는 calc(10% - 5.5584415584vw) 이렇게 적음 */
-.fullVdo {
-  /* 제어 안되고있음 : 수정필요 */
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex; }
-  .fullVdo a {
-    padding-top: 15px;
-    display: block;
-    width: 300px;
-    height: 40px;
-    display: inline-block;
-    letter-spacing: 0.5px;
-    font-family: "Raleway", sans-serif !important;
-    color: #fff; }
-    .fullVdo a em {
-      font-weight: 600; }
-  .fullVdo .arrow::after {
-    content: "";
-    border-radius: 50%;
-    width: 33px;
-    height: 33px;
-    background: #b20000 url(../images/SVG/full.svg) no-repeat 100%/cover;
-    right: -20px;
-    top: -16px;
-    position: absolute; }
-  .fullVdo a:hover .arrow, .fullVdo a:focus .arrow {
-    width: 85px; }
-
 .videoCtrl {
   width: 48px;
   height: 48px;

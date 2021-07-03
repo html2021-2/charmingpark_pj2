@@ -1,44 +1,6 @@
 @charset "utf-8";
 @import "_var", "_mixin", "_function";
 
-.fullVdo {
-  
-  @include flex;
-  
-  a {
-    padding-top: 15px;
-    display: block;
-    width: 300px;
-    height: 40px;
-
-    display: inline-block;
-    
-    letter-spacing: 0.5px;
-    
-    font-family: $beauty;
-    color: #fff;
-    
-    em{font-weight: 600;}
-  }
-  .arrow{
-
-    &::after {
-      content: "";
-      border-radius: 50%;
-      width: 33px;
-      height: 33px;
-      background: #b20000 url(../images/SVG/full.svg) no-repeat 100% / cover;
-      right: -20px;
-      top: -16px;
-      position: absolute;
-    }
-  }
-
-  a:hover .arrow, a:focus .arrow {
-    
-      width: 85px;
-  }
-}
 
 .videoCtrl {
   width: 48px;

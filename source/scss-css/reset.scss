@@ -49,6 +49,7 @@ input {
   font-family: inherit;
   font-size: inherit;
   color: inherit;
+  letter-spacing: inherit;
 }
 
 button {
@@ -82,7 +83,7 @@ section,
 article,
 footer {
   display: block;
-  // animation: name duration timing-function delay iteration-count direction fill-mode;
+  //animation: name duration timing-function delay iteration-count direction fill-mode;
 }
 
 /* scroll-Bar */
@@ -137,22 +138,135 @@ body {
 
 /* .max1440{width: 100%;max-width: 1440px;margin: 0 auto;} */
 /* 반응형 크기 제어  */
+.fullVdo.moreBtn {
+  a {
+    color: #fff;
+  }
 
-.arrow {
-  display: inline-block;
-  width: 60px;
-  height: 2px;
-  background: $wine;
-  @include transition (all 0.25s);
+  .arrow {
+    background: $wine;
+
+    &::after {
+      content: "";
+      border-radius: 50%;
+      width: 33px;
+      height: 33px;
+      background: #b20000 url(../images/SVG/full.svg) no-repeat 100% / cover;
+      right: -20px;
+      top: -16px;
+      position: absolute;
+    }
+  }
+}
+
+
+.moreBtn {
+  /* TODO: 여기까지 했음 */
+  display: block;
+  height: 40px;
+  margin-top: 40px;
+  @include flex;
   position: relative;
-  margin: 3px 15px;
+
+  a {
+    display: inline-block;
+    font-weight: 600;
+    padding-top: 15px;
+    display: block;
+    width: 300px;
+    height: 40px;
+    display: inline-block;
+
+    letter-spacing: 0.5px;
+
+    font-family: $beauty;
+    font-size: 16px;
+
+    em {
+      font-weight: 800;
+    }
+  }
+
+  .wht {
+    font-weight: 400;
+    color: #fff;
+
+    em {
+      font-weight: 600;
+    }
+  }
+
+  /* 
+  
+  TODO: moreBtn arrowR fullVdo 수정바람 
+  겉보기엔 괜찮아도 상태 좋지 않음..
+  a태그의 내용이 길어져도 옆에 있어야 함.
+
+  */
+  .arrow {
+    display: inline-block;
+    width: 60px;
+    height: 2px;
+    background: $wine;
+    @include transition (all 0.25s);
+    position: relative;
+    margin: 3px 15px;
+
+    &::after {
+      content: "";
+      border-radius: 50%;
+      width: 33px;
+      height: 33px;
+      background: #b20000 url(../images/SVG/full.svg) no-repeat 100% / cover;
+      right: -20px;
+      top: -16px;
+      position: absolute;
+    }
+  }
+
+  a:hover .arrow,
+  a:focus .arrow {
+    width: 85px;
+  }
+
+
+  .arrowR {
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      top: 10px;
+      left: 130px;
+      width: 65px;
+      height: 35px;
+      background: url(../images/SVG/arrow+circle.svg) no-repeat 100% / cover;
+      @include transition (all 0.25s);
+    }
+
+    &:hover,
+    &:focus {
+      &::after {
+        left: 180px;
+      }
+    }
+  }
+
 }
 
 .tac {
+  // title이 가운데로 쓰여야 할 때 사용
   text-align: center;
+
+  h2::after {
+    right: 0;
+    margin: 0 auto;
+  }
 }
 
-// title이 가운데로 쓰여야 할 때 사용
+.after::after {
+  border: 4px solid $wine;
+}
+
 .title {
   width: 100%;
   height: auto;
@@ -168,7 +282,8 @@ body {
     text-transform: uppercase;
   }
 
-  h2 {
+  h2,
+  h3 {
     font: normal 11px/13px "Raleway", sans-serif;
     font-size: 3rem;
     font-weight: 500;
@@ -187,4 +302,69 @@ body {
       width: 40px;
     }
   }
+}
+
+.btnBox {
+  margin-top: 50px;
+
+  button {
+    width: 53px;
+    height: 53px;
+    background: no-repeat 100% / cover;
+
+    &:nth-of-type(1) {
+      background: url(../images/SVG/left_crl_arrow.svg);
+
+      &:hover,
+      &:focus {
+        background: url(../images/SVG/left_crl_arrow_on.svg);
+      }
+
+      /* 다음에 기회가 되면 $rosewine 로 바꿔주세요 */
+    }
+
+    &:nth-of-type(2) {
+      background: url(../images/SVG/right_crl_arrow.svg);
+
+      &:hover,
+      &:focus {
+        background: url(../images/SVG/right_crl_arrow_on.svg);
+
+      }
+    }
+  }
+}
+
+.arrowbox {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 72px;
+  height: 65px;
+  background: url(../images/SVG/more_box.svg) no-repeat 100% / cover;
+  z-index: 4;@include transition(all 0.3s);
+}
+
+a:hover .arrowbox, a:focus .arrowbox{background-image: url(../images/SVG/more_box_on.svg);}
+.zoom-frame{
+  overflow: hidden;
+  .img{ transition-duration: 3s;
+    margin: 0 auto;}
+}
+
+.zoom-frame{
+  overflow: hidden;
+}
+.zoom-frame .img {
+  transition-duration: 3s;
+  &:hover{
+    @include transform(scale(1.2));
+  }
+}
+
+.zoom-frame img:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  z-index: 0;
 }

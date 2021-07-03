@@ -11,13 +11,6 @@
   }
 }
 
-#headerWrap {
-  /* height: 100vh;
-  min-height: 700px;
-  overflow: hidden;
-  box-sizing: border-box; */
-}
-
 #Header {
   position: relative;
   overflow: hidden;
@@ -28,7 +21,6 @@
   box-sizing: border-box;
   border-bottom: 4px solid $wine;
 
-  // 크기 선언이 왜 이렇죠??
   #HeaderVideo {
     position: absolute;
     top: -19%;
@@ -53,6 +45,7 @@
     @include transition (all 0.5s);
     z-index: 2;
   }
+
 
   .headerTop,
   .headerBtm {
@@ -200,7 +193,7 @@
 }
 
 .menuTop {
-  display: flex; // flex 방향을 모바일에서 위아래로 바꾸면 해결 됨
+  @include flex; // flex 방향을 모바일에서 위아래로 바꾸면 해결 됨
   width: 100%;
   height: 100px;
   justify-content: space-between;
@@ -274,9 +267,10 @@
       li {
         top: 0;
         left: 0;
-        
 
-        a {padding-left: 50px;
+
+        a {
+          padding-left: 50px;
           height: 50px;
           width: 100%;
           font-size: 16px;
@@ -324,8 +318,11 @@
   z-index: 2;
   @include transition (all 0.5s);
 
-  &:hover{ right: 0; 
-  }/* js로 focus제어 */
+  &:hover {
+    right: 0;
+  }
+
+  /* js로 focus제어 */
 
   li {
     height: 48px;
@@ -337,7 +334,7 @@
       font-size: 13px;
     }
 
-    img {
+    .img {
       width: 48px;
       height: 48px;
     }
@@ -354,7 +351,6 @@
 
   section {
     width: 100%;
-    @include flex;
     box-sizing: border-box;
   }
 
@@ -362,6 +358,7 @@
     height: 670px;
     margin-bottom: 175px;
     @include flex;
+    box-shadow: $shadow;
 
     //background: rgb(255, 255, 255);
 
@@ -371,15 +368,7 @@
       width: 100%;
       max-width: 35%;
 
-      .btnBox {
-        margin-top: 50px;
 
-        button {
-          width: 53px;
-          height: 53px;
-
-        }
-      }
     }
 
     article.view {
@@ -402,13 +391,6 @@
         width: 540px;
         height: 100%;
 
-        &:nth-child(even) {
-          background: rgb(255, 255, 255);
-        }
-
-        &:nth-child(odd) {
-          background: #FBF7EF;
-        }
 
         .txtBox {
           width: 100%;
@@ -426,105 +408,898 @@
 
         p {
           width: 100%;
-          height: 120px;
+          height: 160px;overflow: hidden;
           /* 
-          overflow: hidden;
+          
           white-space: nowrap;
           text-overflow : ellipsis; */
         }
 
-        img {
-
+        .img {
+          aspect-ratio: 5 / 3;
           width: 100%;
           height: 270px;
           background: no-repeat 100% / cover;
         }
+        &.first .img, &.third .img{background-image: url(https://img.juicer.io/ig/image/CQXqXzQCMwJ?s=6b66372c17f05be30d3211c0fe8e55c4ec7d1640);}
+        &.secnd .img, &.fourth .img{background-image: url(https://img.juicer.io/ig/image/CQh9hbvs3Ez?s=8ef8073f1089feaff1890c13ba1d8de1522ee894);}
 
-        .moreBtn {
-          /* TODO: 여기까지 했음 */
-          display: block;
-          height: 40px;
-          margin-top: 40px;
-
-
-        }
-
-
-
+        &.first, &.third{background: #FBF7EF;}
+        &.secnd, &.fourth{background: rgb(255, 255, 255);}
+        
+        //&:nth-of-type(3) .img{background-image: url();}
+        //&:nth-of-type(4) .img{background-image: url();}
       }
 
-      li:nth-of-type(1) {
-
-        .photo {
-          background-image: url(https://img.juicer.io/ig/image/CQXqXzQCMwJ?s=6b66372c17f05be30d3211c0fe8e55c4ec7d1640)
-        }
-
-        /* juicer를 이용해 주소로 이미지 불러오기  */
-      }
-
-      li:nth-of-type(2) {
-        .photo {
-          background: url();
-        }
-      }
-
-      li:nth-of-type(3) {}
-
-      li:nth-of-type(4) {}
-
-      li:nth-of-type(5) {}
     }
   }
 
   #cnt2 {
-    border: 1px solid #000;
     height: 660px;
     margin-bottom: 175px;
+    display: flex;
+
+  }
+
+  .titleBox {
+    height: 100%;
+    width: 42%;
+    box-sizing: border-box;
+    padding: 90px 140px;
+
+    .moreBtn {
+      margin-top: 20px;
+    }
+  }
+
+  #cnt2 .img,
+  #cnt3 .img {
+    height: 100%;
+    width: 58%;
+    border-bottom: 5px solid $wine;
+    aspect-ratio: 8 / 5;
+  }
+
+  #cnt2 .img {
+    background: url(../images/intro.jpg) no-repeat 100% / cover;
+    box-shadow: $shadow;
   }
 
   #cnt3 {
+    position: relative;
     height: 600px;
     margin-bottom: 250px;
+
+    ul {
+      z-index: 2;
+      position: absolute;
+      left: 75px;
+      width: 10px;
+      top: 50%;
+      @include translateY-50;
+
+      li.tab.active {
+
+
+        span:first-child {
+          position: relative;
+
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include translate-50;
+            width: 20px;
+            height: 20px;
+            border: 1px solid $silkynight;
+            border-radius: 50%;
+          }
+        }
+
+        span:last-child {
+          position: absolute;
+          display: inline-block;
+          left: 500%;
+          top: 50%;
+          @include translate-50;
+          width: auto;
+          height: auto;
+          background: $silkynight;
+          font-size: 12px;
+          line-height: 13px;
+          padding: 3px 7px;
+          font-weight: 800;
+          border-radius: 5px;
+          color: #fff;
+        }
+
+      }
+
+      li {
+        position: relative;
+        width: 10px;
+        height: 10px;
+        cursor: pointer;
+
+        margin: 25px 0;
+
+        cursor: pointer;
+
+        span:first-child {
+          display: block;
+          position: relative;
+          width: 100%;
+          height: 100%;
+          background: $silkynight;
+          border-radius: 50%;
+
+          &::before {
+            content: "";
+
+          }
+        }
+
+        span:last-child {
+          display: none;
+        }
+      }
+
+
+    }
+
+
+    .tabpanel {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+
+    .tabpanel.active {
+      display: block;
+    }
+
+    .tabpanel>div {
+      display: flex;
+      flex-direction: row-reverse;
+      width: 100%;
+      height: 100%;
+    }
+
+    .tabpanel .img {
+      background: no-repeat 100% / cover;
+      box-shadow: $shadow;
+    }
+
+    #tabpanel1 .img {
+      background-image: url(../images/example\ 1.jpg);
+    }
+
+    #tabpanel2 .img {
+      background-image: url(../images/students.jpg);
+    }
+
+    #tabpanel3 .img {
+      background-image: url(../images/example\ 2.jpg);
+    }
+
+    #tabpanel4 .img {
+      background-image: url(../images/example\ 3.jpg);
+    }
+
+    #tabpanel5 .img {
+      background-image: url(../images/example\ 4.jpg);
+    }
+
+    .titleBox {
+      height: 100%;
+      width: 42%;
+      box-sizing: border-box;
+      padding: 90px 140px;
+
+      h2.num {
+        font-size: 130px;
+        margin-top: 80px;
+        padding-bottom: 50px;
+        font-weight: 400;
+
+      }
+    }
   }
 
+
   #cnt4 {
+    width: 100%;
     height: 850px;
     margin-bottom: 240px;
+
+    .title {
+      width: 100%;
+      box-sizing: border-box;
+      height: 200px;
+
+    }
+
+    .grade {
+      text-align: center;
+      width: 92%;
+      margin: 0 4%;
+
+      display: flex;
+
+      li {
+        width: 25%;
+        position: relative;
+
+        &::after {
+          content: "";
+          display: block;
+          padding-bottom: 130%;
+          height: 0;
+        }
+
+        a {
+          /* poa니까 그대로 크기확장 + zindex로 제어하면 됨. */
+          background: no-repeat 100% / cover;
+          position: absolute;
+          display: block;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          font-size: 35px;
+          text-transform: uppercase;
+          opacity: 0.4;
+          @include transition (all ease-in-out 0.3s);
+        }
+
+        &:nth-of-type(1) a {
+          background-image: url(../images/Feature-Image1.jpg);
+        }
+
+        &:nth-of-type(2) a {
+          background-image: url(../images/Feature-Image2.jpg);
+        }
+
+        &:nth-of-type(3) a {
+          background-image: url(../images/Feature-Image3.jpg);
+        }
+
+        &:nth-of-type(4) a {
+          background-image: url(../images/Feature-Image4.jpg);
+        }
+
+
+        a:hover,
+        a:focus {
+          z-index: 10;
+          top: -15px;
+          width: 105%;
+          height: 105%;
+          opacity: 1;
+          box-shadow: $shadow;
+          perspective: 2000px;
+          //box-shadow: inset 0 0 150px -120px hsla(0,0%,0%,.5);
+        }
+
+        svg {
+          position: absolute;
+          z-index: 4;
+          bottom: 55px;
+          left: 50%;
+          @include translateX-50;
+
+          height: 66px;
+          width: 400px;
+
+          font-family: "Raleway", sans-serif;
+          font-weight: 900;
+
+          // stroke-dasharray: 1200;
+          // stroke-dashoffset: 1200;
+          /* dasharray가 있으면 글씨가 안보이게됨. */
+
+          z-index: 1;
+          animation: 30s ease 0s 1 normal forwards running draw;
+
+          text {
+            fill: transparent;
+            stroke: #fff;
+            stroke-width: 1.5px;
+            letter-spacing: 3px;
+            stroke-linecap: round;
+            text-transform: uppercase;
+            font-size: 42px;
+          }
+        }
+      }
+    }
   }
 
   #cnt5 {
     height: 615px;
-    margin-bottom: 170px;
+    margin-bottom: 80px;
+    position: relative;
+    display: flex;
+
+    .titleBox {
+      height: 100%;
+      width: 42%;
+      box-sizing: border-box;
+      padding: 60px 100px 0 250px;
+
+      h2 {
+        margin-bottom: 50px;
+      }
+
+      .moreBtn {
+        position: relative;
+        margin-top: 20px;
+      }
+    }
+
+    nav {
+      width: 300px;
+      height: 114px;
+      font-size: 22px;
+      letter-spacing: 1.5px;
+
+      .Grade,
+      .Professor {
+        width: 300px;
+        height: 45px;
+        position: relative;
+        margin: 13px 0;
+      }
+
+      button {
+        width: 300px;
+        height: 45px;
+        border: 1px solid $silkynight;
+        position: relative;
+        color: $wine;
+        text-align: left;
+        box-sizing: border-box;
+        padding: 0 15px;
+
+        &:hover,
+        &:focus {
+          background: $whtwine;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 19px;
+          right: 20px;
+          display: block;
+          width: 0;
+          height: 0;
+          border-top: 8px solid $silkynight;
+          border-right: 8px solid transparent;
+          border-left: 8px solid transparent;
+        }
+      }
+
+      ul {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 52px;
+        width: 300px;
+        height: auto;
+      }
+
+      li {
+        width: 300px;
+        height: 45px;
+        box-sizing: border-box;
+        padding: 0 15px;
+        background: rgb(88, 157, 102);
+      }
+
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+
+    article.view {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 1050px;
+      height: 530px;
+      overflow: hidden;
+
+      ul {
+        height: 100%;
+        display: flex;
+      }
+
+      li {
+        height: 100%;
+        width: 410px;
+        margin: 0 20px;
+        position: relative;
+        flex: 0 0 auto;
+      }
+
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        background: no-repeat 150% / cover;
+        box-shadow: $shadow;
+      }
+
+      li.first a {
+        background-image: url(../images/1.jpg);
+      }
+
+      li.secnd a {
+        background-image: url(../images/2.jpg);
+      }
+
+      li.third a {
+        background-image: url(../images/3.jpg);
+      }
+
+      li.fourth a {
+        background-image: url(../images/2.jpg);
+      }
+
+      .txt {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: rgba(53, 63, 76, 0.7);
+        font-family: "Raleway", sans-serif;
+        color: #fff;
+        font-size: 20px;
+        line-height: 40px;
+
+        h4 {
+          letter-spacing: 2.5px;
+          font-size: 12px;
+          font-family: "Raleway", sans-serif;
+          font-weight: 800;
+          text-transform: uppercase;
+        }
+
+        .mini {
+          font-size: 30px;
+          line-height: 30px;
+        }
+
+        h4,
+        .mini {
+          padding-left: 20px;
+        }
+      }
+
+
+    }
+
+    .btnBox {
+      position: absolute;
+      right: 40px;
+      bottom: 0;
+    }
   }
 
-  #cnt6 {
-    height: 850px;
-    margin-bottom: 190px;
+  // #cnt5 nav a{display: block; padding-left: 15px; /* line-height: 48px; font-size: 23px; */}
 
+  #cnt6 {
+    height: 1000px;
+    margin-bottom: 190px;
+    position: relative;
+
+    .titleBox {
+      position: absolute;
+      right: 0;
+      width: 50%;
+      height: 100%;
+    }
+
+    article {
+      position: absolute;
+      top: 190px;
+      height: 650px;
+      overflow: hidden;
+      width: 100%;
+
+      ul {
+        height: 100%;
+        display: flex;
+        position: relative;
+        left: -550px;
+
+        li {
+          width: 700px;
+          flex: 0 0 auto;
+          margin: 0 13px;
+
+          &.first .img{background: url(../images/goon.jpg);}
+          &.secnd .img{background: url(../images/roundupsports.jpg);}
+          &.third .img{background: url(../images/winner.jpg);}
+          &.fourth .img{background: url(../images/J70Yacht.jpg);}
+          
+          &:nth-of-type(2){-webkit-align-content: flex-start;
+            align-content: flex-start;}
+
+          &:nth-of-type(1),
+          &:nth-of-type(3),
+          &:nth-of-type(4){-webkit-align-content: flex-end;
+            align-content: flex-end;}
+        }
+
+        section {
+          height: 570px;
+          ;
+
+          a {
+            display: block;
+            height: 100%;
+box-shadow: $shadow;
+            .img {
+              height: 70%;
+              background: no-repeat 100% / cover;
+            }
+
+            .txt {
+              position: relative;
+              height: 30%;
+              box-sizing: border-box;
+              padding: 30px 40px;
+              background: $whtwine;
+
+              h4 {
+                letter-spacing: 2.5px;
+                line-height: 30px;
+                font-size: 12px;
+                font-family: "Raleway", sans-serif;
+                font-weight: 800;
+                text-transform: uppercase;
+              }
+
+              .title {
+                font-size: 30px;
+                line-height: 30px;
+                font-family: "Raleway", sans-serif;
+                color: $wine;
+              }
+            }
+          }
+
+        }
+      }
+    }
+
+
+    .flex-container {
+
+      list-style: none;
+
+      display: flex;
+      flex-flow: row wrap;
+    }
+
+    .btnBox{position: absolute; left: 300px;bottom: 120px;}
+    .moreBtn{position: absolute; left: 550px;bottom: 135px;}
   }
 
   #cnt7 {
+    background: $midnight;
+    //background: $midnight;
     /* 원본디자인 픽셀 그대로 가져오기 : 풋터까지 다 만들고 마지막에 제어 */
-    height: 1050px;
-    margin-bottom: 280px;
+    padding-top: 80px;
+    width: 100%;
+    height: 1010px;
+    margin-bottom: 240px;
+
+    .title {
+
+      color: #fff ;
+      width: 100%;
+      box-sizing: border-box;
+      height: 200px;
+
+      h2 {
+        color: #fff;
+
+        &::after {
+          background: #fff;
+        }
+      }
+    }
+
+    article.view {
+      width: 100%;
+      overflow: hidden;
+      height: 570px;
+      position: relative;
+
+      ul {
+        height: 100%;
+        flex: 0 0 auto;
+        position: absolute;
+        left: -565px;
+        display: flex;
+        justify-content: space-between;
+
+        li {
+          height: 100%;
+          width: 950px;
+          margin: 0 30px;
+          box-shadow: $shadow;
+
+          a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            display: flex;
+          }
+
+          .img {
+            width: 60%;
+            height: 100%;
+            box-sizing: border-box;
+            background: no-repeat 100% / cover;
+          }
+
+          &.first .img {
+            background-image: url(../images/cnt71.jpg);
+          }
+
+          &.secnd .img {
+            background-image: url(../images/cnt74-1.jpg);
+          }
+
+          &.third .img {
+            background-image: url(../images/cnt72.jpg);
+          }
+
+          &.fourth .img {
+            background-image: url(../images/cnt74.jpg);
+          }
+
+          .txtBox {
+            width: 40%;
+            height: 100%;
+            background: #fff;
+            box-sizing: border-box;
+            padding: 30px 40px;
+            position: relative;
+
+            h3 {
+              font-size: 30px;
+              line-height: 55px;
+
+            }
+            p.blk{color: $midnight;}
+          }
+        }
+      }
+    }
+
+    .sliderBtn {
+      position: absolute;
+      width: 156px;
+      height: 100px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      margin-top: 30px;
+      display: flex;
+
+      button {
+        width: 11px;
+        height: 10px;
+        margin: 20px;
+        background: url(../images/SVG/wht_arrow.svg);
+
+        @include animation (twinkle 3s linear infinite both);
+      }
+
+      .point {
+        width: 53px;
+        height: 53px;
+        border-radius: 50%;
+        background: $wine url(../images/SVG/cursor_pointer.svg) no-repeat 100% / cover;
+
+
+        &:hover {
+          @include animation (point 6s linear infinite both);
+        }
+      }
+
+    }
+
+    p.pointTxt {
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+      color: hsl(0, 0%, 90%);
+      margin-top: 90px;
+    }
+
+    @keyframes twinkle {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0.3;
+      }
+    }
+
+    @keyframes point {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      50% {
+        transform: rotate(90deg);
+      }
+
+      100% {
+        transform: rotate(0deg);
+      }
+    }
   }
+
+
+
 
   #cnt8 {
     height: 780px;
-    margin-bottom: 250px;
-    background: rgba(208, 16, 16, 0.172);
+    margin-bottom: 300px;
+    position: relative;
+    display: flex;
+
+    .img {
+      background: url(../images/school.jpg) no-repeat 100% / cover;
+      position: absolute;
+      top: 80px;
+      left: 120px;
+      width: 92%;
+      height: 80%;
+    }
+
+    .frame {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .titleBox {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 30px 40px;
+      width: 520px;
+      height: 560px;
+      background: #fff;
+      border-top: 5px solid $wine;
+    }
+
+    .map {
+      display: block;
+      position: absolute;
+      right: 140px;
+      bottom: -80px;
+      width: 610px;
+      height: 470px;
+      background: url(../images/1x/map-8.png) no-repeat 100% / cover;
+    }
   }
 }
 
 #Footer {
+  color: #fff;font-family: "Raleway", sans-serif;font-size:14px;
+  
   .info {
-    height: 580px;
-    background: rgba(208, 16, 16, 0.172);
+    height: 450px;
+    background: $silkynight;
+    box-sizing: border-box;
+    padding: 75px 210px 70px;
+    h2{font-size: 20px;font-weight: 500;margin-bottom: 20px; position: relative;
+    &::after{content: ""; display: block; height: 3px; width: 22px; position: absolute; bottom: 0; left: 0;
+      bottom: -10px; background: $wine;
+      left: 0;}}
+      .pNum{display: block; font-size: 22px;text-decoration: underline;letter-spacing: normal;cursor: pointer;margin-top: 7px;}
+    div {
+      width: 100%;
+      height: 100%;
+      position: relative;
+
+      .logo {
+        display: block;
+        position: relative;
+        top: -40px;
+        left: 60px;
+        height: 100%;
+        width: 300px;
+        background: url(../images/1x/footer-logo.png) no-repeat 100% / cover;
+      }
+    }
+
+    .schInfo {
+      display: flex;
+      width: 67%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      li{width: 300px;margin-right: 30px;}
+    }
+
+    .sns-menu {
+      height: 53px;
+      width: 67%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      display: flex;
+      li{width: 53px;height: 53px; margin-right: 35px; 
+        aspect-ratio: 1 / 1;
+      a{display: block; width: 100%;height: 100%; border-radius: 50%; background: $wine;
+      &:hover, &:focus{background: $wine-hover; }}}
+    }
   }
 
   .copyR {
+    background: $midnight;
+    letter-spacing: 2.5px;
+    line-height: 30px;
+    
+    font-weight: 800;
+    text-transform: uppercase;
+
     height: 85px;
-    background: rgba(16, 208, 70, 0.172);
+    line-height: 85px;
+    box-sizing: border-box;
+    padding: 0 250px;
+
+    //background: rgba(16, 208, 70, 0.172);
+    .left {
+      float: left;
+    }
+
+    .right {
+      float: right;
+      display: flex;
+height: 100%;
+      ul { margin-right: 70px;
+        display: flex;
+        height: 100%;
+        width: 50%;
+        li{margin-right: 20px;}
+      }
+
+      >a {
+        display: block;
+        width: 160px;
+        height: 25px;
+        margin: 28px 0 ;
+        background: url(../images/last.svg) no-repeat 100% / cover;
+        opacity: 0.9;
+        box-sizing: border-box;
+        border-radius: 5px;
+      }
+    }
+
+
   }
 }
 
@@ -534,6 +1309,7 @@
 .md_cnt {
   position: fixed;
   z-index: 1000;
+
 }
 
 #dim {
@@ -545,9 +1321,14 @@
   background: rgba(0, 0, 0, .5);
 }
 
-.md_cnt{
+.md_cnt {
   visibility: hidden;
 }
+
+
+
+
+
 
 
 

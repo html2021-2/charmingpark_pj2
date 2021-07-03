@@ -1,7 +1,6 @@
 @charset "UTF-8";
 /* #f0c2c9 , #ffdbe1 */
-/* 
-*/
+/* 모달창 색상 */
 /* TODO: 본문글씨 공통클래스 */
 /* @include translateY-50;
     position: absolute;top: 50%; */
@@ -108,21 +107,21 @@ vw-calc770(태블릿 사이즈size) {
     background: url(../images/header_logo.png) no-repeat 100% center/contain;
     /* transition: transform 1.2s ease opacity 0.3s; */ }
 
-.search .btn_open {
-  position: relative; }
-  .search .btn_open::after {
-    content: "";
-    position: absolute;
-    background: url(../images/SVG/search.svg) no-repeat 100%/contain;
-    opacity: 0.95;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    transition: all 0.4s; }
-  .search .btn_open:hover::after, .search .btn_open:focus::after {
-    transform: scale(1.3, 1.3); }
-.search.on {
+.search {
   /* on이 되면 스크롤 금지 */ }
+  .search .btn_open {
+    position: relative; }
+    .search .btn_open::after {
+      content: "";
+      position: absolute;
+      background: url(../images/SVG/search.svg) no-repeat 100%/contain;
+      opacity: 0.95;
+      -webkit-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+      -o-transition: all 0.4s;
+      transition: all 0.4s; }
+    .search .btn_open:hover::after, .search .btn_open:focus::after {
+      transform: scale(1.3, 1.3); }
   .search.on .search_slide_out {
     -webkit-flex-flow: column;
     -moz-flex-flow: column;
@@ -239,6 +238,11 @@ vw-calc770(태블릿 사이즈size) {
       background: #720000; }
 
 .menuTop .sub_menu ul {
+  /* 제어 안되고있음 : 수정필요 */
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
   justify-content: space-between; }
   .menuTop .sub_menu ul li a {
@@ -307,8 +311,13 @@ vw-calc770(태블릿 사이즈size) {
     font-family: "Raleway", sans-serif;
     font-weight: 800;
     display: block;
-    display: flex;
     color: #fff;
+    /* 제어 안되고있음 : 수정필요 */
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -o-transition: all 0.3s;
@@ -316,6 +325,18 @@ vw-calc770(태블릿 사이즈size) {
     overflow: hidden; }
     .sticky li a:hover, .sticky li a:focus {
       background: #720000; }
+  .sticky li .img {
+    background: no-repeat 100% / cover; }
+  .sticky li:nth-of-type(1) .img {
+    background-image: url(../images/SVG/login_1.svg); }
+  .sticky li:nth-of-type(2) .img {
+    background-image: url(../images/SVG/contact_1.svg); }
+  .sticky li:nth-of-type(3) .img {
+    background-image: url(../images/SVG/visit_1.svg); }
+  .sticky li:nth-of-type(4) .img {
+    background-image: url(../images/SVG/apply_1.svg); }
+  .sticky li:nth-of-type(5) .img {
+    background-image: url(../images/SVG/slide_up_1.svg); }
   .sticky li span {
     padding: 10px; }
 
@@ -328,19 +349,6 @@ header.controller,
 article.board li {
   padding: 45px 50px;
   box-sizing: border-box; }
-
-/* 뒤에 배경보고 레이아웃 만들기 */
-#cnt1::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 10286px;
-  top: -51vh;
-  /* 학원 -105vh / 집 chrome -51vh */
-  left: 0;
-  background: url(../images/bodylayout.jpg) no-repeat 100%/contain;
-  z-index: -1;
-  opacity: 0.2; }
 
 @-webkit-keyframes upNdown {
   0%,

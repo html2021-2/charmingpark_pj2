@@ -1,7 +1,6 @@
 @charset "UTF-8";
 /* #f0c2c9 , #ffdbe1 */
-/* 
-*/
+/* 모달창 색상 */
 /* TODO: 본문글씨 공통클래스 */
 /* @include translateY-50;
     position: absolute;top: 50%; */
@@ -107,7 +106,8 @@ button,
 input {
   font-family: inherit;
   font-size: inherit;
-  color: inherit; }
+  color: inherit;
+  letter-spacing: inherit; }
 
 button {
   border: none;
@@ -179,20 +179,104 @@ body {
 
 /* .max1440{width: 100%;max-width: 1440px;margin: 0 auto;} */
 /* 반응형 크기 제어  */
-.arrow {
-  display: inline-block;
-  width: 60px;
-  height: 2px;
-  background: #b20000;
-  -webkit-transition: all 0.25s;
-  -moz-transition: all 0.25s;
-  -o-transition: all 0.25s;
-  transition: all 0.25s;
+.fullVdo.moreBtn a {
+  color: #fff; }
+.fullVdo.moreBtn .arrow {
+  background: #b20000; }
+  .fullVdo.moreBtn .arrow::after {
+    content: "";
+    border-radius: 50%;
+    width: 33px;
+    height: 33px;
+    background: #b20000 url(../images/SVG/full.svg) no-repeat 100%/cover;
+    right: -20px;
+    top: -16px;
+    position: absolute; }
+
+.moreBtn {
+  /* TODO: 여기까지 했음 */
+  display: block;
+  height: 40px;
+  margin-top: 40px;
+  /* 제어 안되고있음 : 수정필요 */
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
   position: relative;
-  margin: 3px 15px; }
+  /* 
+  
+  TODO: moreBtn arrowR fullVdo 수정바람 
+  겉보기엔 괜찮아도 상태 좋지 않음..
+  a태그의 내용이 길어져도 옆에 있어야 함.
+
+  */ }
+  .moreBtn a {
+    display: inline-block;
+    font-weight: 600;
+    padding-top: 15px;
+    display: block;
+    width: 300px;
+    height: 40px;
+    display: inline-block;
+    letter-spacing: 0.5px;
+    font-family: "Raleway", sans-serif !important;
+    font-size: 16px; }
+    .moreBtn a em {
+      font-weight: 800; }
+  .moreBtn .wht {
+    font-weight: 400;
+    color: #fff; }
+    .moreBtn .wht em {
+      font-weight: 600; }
+  .moreBtn .arrow {
+    display: inline-block;
+    width: 60px;
+    height: 2px;
+    background: #b20000;
+    -webkit-transition: all 0.25s;
+    -moz-transition: all 0.25s;
+    -o-transition: all 0.25s;
+    transition: all 0.25s;
+    position: relative;
+    margin: 3px 15px; }
+    .moreBtn .arrow::after {
+      content: "";
+      border-radius: 50%;
+      width: 33px;
+      height: 33px;
+      background: #b20000 url(../images/SVG/full.svg) no-repeat 100%/cover;
+      right: -20px;
+      top: -16px;
+      position: absolute; }
+  .moreBtn a:hover .arrow,
+  .moreBtn a:focus .arrow {
+    width: 85px; }
+  .moreBtn .arrowR::after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 10px;
+    left: 130px;
+    width: 65px;
+    height: 35px;
+    background: url(../images/SVG/arrow+circle.svg) no-repeat 100%/cover;
+    -webkit-transition: all 0.25s;
+    -moz-transition: all 0.25s;
+    -o-transition: all 0.25s;
+    transition: all 0.25s; }
+  .moreBtn .arrowR:hover::after, .moreBtn .arrowR:focus::after {
+    left: 180px; }
 
 .tac {
   text-align: center; }
+  .tac h2::after {
+    right: 0;
+    margin: 0 auto; }
+
+.after::after {
+  border: 4px solid #b20000; }
 
 .title {
   width: 100%;
@@ -205,7 +289,8 @@ body {
     font-family: "Raleway", sans-serif;
     font-weight: 800;
     text-transform: uppercase; }
-  .title h2 {
+  .title h2,
+  .title h3 {
     font: normal 11px/13px "Raleway", sans-serif;
     font-size: 3rem;
     font-weight: 500;
@@ -213,7 +298,8 @@ body {
     color: #b20000;
     margin-bottom: 40px;
     position: relative; }
-    .title h2::after {
+    .title h2::after,
+    .title h3::after {
       content: "";
       position: absolute;
       bottom: -20px;
@@ -221,5 +307,61 @@ body {
       background: #707070;
       height: 2px;
       width: 40px; }
+
+.btnBox {
+  margin-top: 50px; }
+  .btnBox button {
+    width: 53px;
+    height: 53px;
+    background: no-repeat 100% / cover; }
+    .btnBox button:nth-of-type(1) {
+      background: url(../images/SVG/left_crl_arrow.svg);
+      /* 다음에 기회가 되면 $rosewine 로 바꿔주세요 */ }
+      .btnBox button:nth-of-type(1):hover, .btnBox button:nth-of-type(1):focus {
+        background: url(../images/SVG/left_crl_arrow_on.svg); }
+    .btnBox button:nth-of-type(2) {
+      background: url(../images/SVG/right_crl_arrow.svg); }
+      .btnBox button:nth-of-type(2):hover, .btnBox button:nth-of-type(2):focus {
+        background: url(../images/SVG/right_crl_arrow_on.svg); }
+
+.arrowbox {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 72px;
+  height: 65px;
+  background: url(../images/SVG/more_box.svg) no-repeat 100%/cover;
+  z-index: 4;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s; }
+
+a:hover .arrowbox, a:focus .arrowbox {
+  background-image: url(../images/SVG/more_box_on.svg); }
+
+.zoom-frame {
+  overflow: hidden; }
+  .zoom-frame .img {
+    transition-duration: 3s;
+    margin: 0 auto; }
+
+.zoom-frame {
+  overflow: hidden; }
+
+.zoom-frame .img {
+  transition-duration: 3s; }
+  .zoom-frame .img:hover {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    /* -o-transform: $value;
+    -ms-transform: $value; */
+    transform: scale(1.2); }
+
+.zoom-frame img:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  z-index: 0; }
 
 /*# sourceMappingURL=reset.css.map */
